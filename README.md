@@ -1,8 +1,8 @@
 # Music Visualiser Project
 
-Name:
+Name: Allyanna Riyann Cruz
 
-Student Number: 
+Student Number: C18310641
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
