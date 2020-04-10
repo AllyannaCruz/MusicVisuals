@@ -24,6 +24,7 @@ public class MyVisual extends Visual
                 
         // Call loadAudio to load an audio file to process 
         //loadAudio("heroplanet.mp3");   
+        loadAudio("love4eva.mp3");
 
         //second heart code
     
@@ -37,7 +38,7 @@ public class MyVisual extends Visual
       
         
         // Call this instead to read audio from the microphone
-        startListening(); 
+        //startListening(); 
         
         wf = new WaveForm(this);
         abv = new AudioBandsVisual(this);
