@@ -1,11 +1,17 @@
 package c18310641;
 
 import ie.tudublin.*;
+import processing.core.PApplet;
+import ddf.minim.*;
 
 public class MyVisual extends Visual
 {    
     WaveForm wf;
     AudioBandsVisual abv;
+    Minim minim;
+    Audioplayer player;
+    AudioSample as;
+
 
     public void settings()
     {
@@ -24,24 +30,29 @@ public class MyVisual extends Visual
                 
         // Call loadAudio to load an audio file to process 
         //loadAudio("heroplanet.mp3");   
-        loadAudio("love4eva.mp3");
+        //loadAudio("love4eva.mp3");
+//		as = minim.loadSample("love4eva.mp3", frameSize);
+        //colorMode(HSB);
+        
+        minim = new Minim(this);
+        player = minim.loadFile("love4eva.mp3");
+
 
         //second heart code
-    
+    /*
         size(600,600);
         smooth();
         strokeWeight(5);
         stroke(255,0,0);
-      
+      */
   
     
-      
-        
         // Call this instead to read audio from the microphone
         //startListening(); 
         
         wf = new WaveForm(this);
         abv = new AudioBandsVisual(this);
+        
     }
 
     public void keyPressed()
@@ -65,7 +76,7 @@ public class MyVisual extends Visual
         {
             e.printStackTrace();
         }
-
+        /*
         //hearts
         translate(width/2,3*height/4);
         background(255);
@@ -76,7 +87,8 @@ public class MyVisual extends Visual
             point(x,y); // use these to place your little hearts
             point(-x,y); // use these to place your little hearts
         } //end for
-
+        */
+        
         // Call this is you want to use frequency bands
         calculateFrequencyBands(); 
 
