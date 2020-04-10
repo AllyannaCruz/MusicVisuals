@@ -65,12 +65,13 @@ public class MyVisual extends Visual
             e.printStackTrace();
         }
 
+        //hearts
         translate(width/2,3*height/4);
         background(255);
 
         for (int i=0; i<61; i++) {
-            float x = 0.25 * (-pow(i,2) + 40*i + 1200)*sin((PI*i)/180);
-            float y = -0.25 * (-pow(i,2) + 40*i + 1200)*cos((PI*i)/180);
+            float x = (float) (0.25 * (-pow(i, 2) + 40 * i + 1200) * sin((PI * i) / 180));
+            float y = (float) (-0.25 * (-pow(i, 2) + 40 * i + 1200) * cos((PI * i) / 180));
             point(x,y); // use these to place your little hearts
             point(-x,y); // use these to place your little hearts
         } //end for
