@@ -1,20 +1,18 @@
 package c18310641;
 
-import ie.tudublin.*;
+import ie.tudublin.Visual;
+import ie.tudublin.VisualException;
 import processing.core.PApplet;
 import ddf.minim.*;
 //import processing.sound.*; -- must download zip file ?
 
-public class MyVisual extends Visual
+public class MyVisual extends Visual 
 {    
     WaveForm wf;
     AudioBandsVisual abv;
     Minim minim;
     AudioPlayer player; // make sure to spell stuff correctly!!
     AudioSample as;
-
-    int frameSize = 1024;
-    float frameToSecond = 44100 / (float) frameSize;
 
 
     public void settings()
@@ -30,13 +28,15 @@ public class MyVisual extends Visual
 
     public void setup()
     {
-        minim = new Minim(this);
-       // startMinim();
+        //minim = new Minim(this);
+        startMinim();
+
                 
         // Call loadAudio to load an audio file to process 
         //loadAudio("heroplanet.mp3");   
-        //loadAudio("love4eva.mp3");
-	    as = minim.loadSample("love4eva.mp3", frameSize);
+        loadAudio("love4eva.mp3");
+        //getAp().play();
+	   // as = minim.loadSample("love4eva.mp3", frameSize);
         //colorMode(HSB);
         
         //minim = new Minim(this);
