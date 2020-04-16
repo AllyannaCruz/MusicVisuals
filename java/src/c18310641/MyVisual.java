@@ -3,14 +3,17 @@ package c18310641;
 import ie.tudublin.*;
 import processing.core.PApplet;
 import ddf.minim.*;
+//import processing.sound.*; -- must download zip file ?
 
 public class MyVisual extends Visual
 {    
     WaveForm wf;
     AudioBandsVisual abv;
     Minim minim;
-    Audioplayer player;
+    AudioPlayer player; // make sure to spell stuff correctly!!
     AudioSample as;
+
+    int frameSize = 1024;
 
 
     public void settings()
@@ -26,16 +29,17 @@ public class MyVisual extends Visual
 
     public void setup()
     {
-        startMinim();
+        minim = new Minim(this);
+       // startMinim();
                 
         // Call loadAudio to load an audio file to process 
         //loadAudio("heroplanet.mp3");   
         //loadAudio("love4eva.mp3");
-//		as = minim.loadSample("love4eva.mp3", frameSize);
+	    as = minim.loadSample("love4eva.mp3", frameSize);
         //colorMode(HSB);
         
-        minim = new Minim(this);
-        player = minim.loadFile("love4eva.mp3");
+        //minim = new Minim(this);
+        //player = minim.loadFile("love4eva.mp3");
 
 
         //second heart code
@@ -78,8 +82,9 @@ public class MyVisual extends Visual
         }
         /*
         //hearts
-        translate(width/2,3*height/4);
         background(255);
+        translate(width/2,3*height/4);
+        
 
         for (int i=0; i<61; i++) {
             float x = (float) (0.25 * (-pow(i, 2) + 40 * i + 1200) * sin((PI * i) / 180));
