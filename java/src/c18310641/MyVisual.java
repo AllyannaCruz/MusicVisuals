@@ -14,6 +14,7 @@ public class MyVisual extends Visual
     AudioSample as;
 
     int frameSize = 1024;
+    float frameToSecond = 44100 / (float) frameSize;
 
 
     public void settings()
