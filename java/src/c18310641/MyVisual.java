@@ -35,7 +35,7 @@ public class MyVisual extends Visual
         // Call loadAudio to load an audio file to process 
         //loadAudio("heroplanet.mp3");   
         loadAudio("love4eva.mp3");
-        //getAp().play();
+        getAudioPlayer().play();
 	   // as = minim.loadSample("love4eva.mp3", frameSize);
         //colorMode(HSB);
         
