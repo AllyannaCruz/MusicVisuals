@@ -35,7 +35,8 @@ public class MyVisual extends Visual
         // Call loadAudio to load an audio file to process 
         //loadAudio("heroplanet.mp3");   
         loadAudio("love4eva.mp3");
-        getAudioPlayer().play();
+        //getAudioPlayer().play();
+        //getAudioBuffer();
 	   // as = minim.loadSample("love4eva.mp3", frameSize);
         //colorMode(HSB);
         
@@ -64,7 +65,7 @@ public class MyVisual extends Visual
     {
         if (key == ' ')
         {
-            getAudioPlayer().cue(0);
+            getAudioPlayer().cue(0); // take 0 out??
             getAudioPlayer().play();
         }
     }

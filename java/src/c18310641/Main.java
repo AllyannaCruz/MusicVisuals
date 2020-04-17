@@ -15,17 +15,25 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		Main main = new Main();
+        Main main = new Main();
+        main.myVisual();
         //main.startUI();			
-        main.startHeart();
+        //main.startHeart();
     }
     
     //heart
-    
+    /*
     public void startHeart()
     {
         String[] a = {"MAIN"};
         processing.core.PApplet.runSketch(a, new MyVisual());
     }
-    
+    */
+
+    //MyVisual
+    public void myVisual()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new MyVisual());
+    }
 }
