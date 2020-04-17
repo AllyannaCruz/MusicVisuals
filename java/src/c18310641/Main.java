@@ -3,6 +3,7 @@ package c18310641;
 //import example.CubeVisual;
 import example.MyVisual;
 
+
 public class Main
 {	
     /*
@@ -36,4 +37,6 @@ public class Main
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new MyVisual());
     }
-}
+
+
+} // end class

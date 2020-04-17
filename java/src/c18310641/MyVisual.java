@@ -2,7 +2,6 @@ package c18310641;
 
 import ie.tudublin.Visual;
 import ie.tudublin.VisualException;
-import processing.core.PApplet;
 import ddf.minim.*;
 //import processing.sound.*; -- must download zip file ?
 
@@ -14,6 +13,7 @@ public class MyVisual extends Visual
     AudioPlayer player; // make sure to spell stuff correctly!!
     AudioSample as;
 
+    int frameSize = 512;
 
     public void settings()
     {
@@ -26,18 +26,28 @@ public class MyVisual extends Visual
         //fullScreen(P3D, SPAN); 
     }
 
+    public void keyPressed()
+    {
+        if (key == ' ')
+        {
+            getAudioPlayer().cue(0); // take 0 out??
+            getAudioPlayer().play();
+        }
+    }
+
     public void setup()
     {
         //minim = new Minim(this);
         startMinim();
-
+        getFrameSize();
+        as = minim.loadSample("love4eva.mp3", frameSize);
                 
         // Call loadAudio to load an audio file to process 
-        //loadAudio("heroplanet.mp3");   
+        //loadAudio("heroplanet.mp3");
         loadAudio("love4eva.mp3");
         //getAudioPlayer().play();
         //getAudioBuffer();
-	   // as = minim.loadSample("love4eva.mp3", frameSize);
+	   
         //colorMode(HSB);
         
         //minim = new Minim(this);
@@ -61,6 +71,7 @@ public class MyVisual extends Visual
         
     }
 
+    /*
     public void keyPressed()
     {
         if (key == ' ')
@@ -69,6 +80,7 @@ public class MyVisual extends Visual
             getAudioPlayer().play();
         }
     }
+    */
 
     public void draw()
     {
