@@ -13,7 +13,8 @@ public class MyVisual extends Visual
     AudioPlayer player; // make sure to spell stuff correctly!!
     AudioSample as;
 
-    int frameSize = 512;
+    private int frameSize = 512;
+	private int sampleRate = 44100;
 
     public void settings()
     {
@@ -37,14 +38,15 @@ public class MyVisual extends Visual
 
     public void setup()
     {
+        
         //minim = new Minim(this);
+        //setFrameSize(256);
         startMinim();
-        getFrameSize();
         as = minim.loadSample("love4eva.mp3", frameSize);
                 
         // Call loadAudio to load an audio file to process 
         //loadAudio("heroplanet.mp3");
-        loadAudio("love4eva.mp3");
+        //loadAudio("love4eva.mp3");
         //getAudioPlayer().play();
         //getAudioBuffer();
 	   
