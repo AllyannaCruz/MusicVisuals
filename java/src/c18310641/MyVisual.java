@@ -2,19 +2,19 @@ package c18310641;
 
 import ie.tudublin.Visual;
 import ie.tudublin.VisualException;
-import ddf.minim.*;
+//import ddf.minim.*;
 //import processing.sound.*; -- must download zip file ?
 
 public class MyVisual extends Visual 
 {    
     WaveForm wf;
     AudioBandsVisual abv;
-    Minim minim;
-    AudioPlayer player; // make sure to spell stuff correctly!!
-    AudioSample as;
+    //Minim minim;
+    //AudioPlayer player; // make sure to spell stuff correctly!!
+    //AudioSample as;
 
-    private int frameSize = 512;
-	private int sampleRate = 44100;
+    int frameSize = 512;
+	int sampleRate = 44100;
 
     public void settings()
     {
@@ -27,36 +27,26 @@ public class MyVisual extends Visual
         //fullScreen(P3D, SPAN); 
     }
 
+    public void keyPressed()
+    {
+        if (key == ' ')
+        {
+            getAudioPlayer().cue(0); 
+            getAudioPlayer().play();
+        }
+    }
 
     public void setup()
     {
         
         //minim = new Minim(this);
-        //setFrameSize(256);
+        setFrameSize(256);
+
         startMinim();
-        //as = minim.loadSample("love4eva.mp3", frameSize);
-                
-        // Call loadAudio to load an audio file to process 
-        //loadAudio("heroplanet.mp3");
-        loadAudio("love4eva.mp3");
-        //getAudioPlayer().play();
-        //getAudioBuffer();
-	   
-        //colorMode(HSB);
+        loadAudio("heroplanet.mp3");
+        //getaAp().play();
         
-        //minim = new Minim(this);
-        //player = minim.loadFile("love4eva.mp3");
 
-
-        //second heart code
-    /*
-        size(600,600);
-        smooth();
-        strokeWeight(5);
-        stroke(255,0,0);
-      */
-  
-    
         // Call this instead to read audio from the microphone
         //startListening(); 
         
@@ -65,15 +55,16 @@ public class MyVisual extends Visual
         
     }
 
-    
+    /*
     public void keyPressed()
     {
         if (key == ' ')
         {
-            getAudioPlayer().cue(0); // take 0 out??
+            getAudioPlayer().cue(0); 
             getAudioPlayer().play();
         }
     }
+    */
     
 
     public void draw()

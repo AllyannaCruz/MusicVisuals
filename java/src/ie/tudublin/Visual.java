@@ -78,7 +78,7 @@ public abstract class Visual extends PApplet
 			smoothedBands[i] = lerp(smoothedBands[i], bands[i], 0.05f);
 		}
 	}
-
+	
 	public void startListening()
 	{
 		ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
