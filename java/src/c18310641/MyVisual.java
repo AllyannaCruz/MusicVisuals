@@ -27,14 +27,6 @@ public class MyVisual extends Visual
         //fullScreen(P3D, SPAN); 
     }
 
-    public void keyPressed()
-    {
-        if (key == ' ')
-        {
-            getAudioPlayer().cue(0); // take 0 out??
-            getAudioPlayer().play();
-        }
-    }
 
     public void setup()
     {
@@ -42,11 +34,11 @@ public class MyVisual extends Visual
         //minim = new Minim(this);
         //setFrameSize(256);
         startMinim();
-        as = minim.loadSample("love4eva.mp3", frameSize);
+        //as = minim.loadSample("love4eva.mp3", frameSize);
                 
         // Call loadAudio to load an audio file to process 
         //loadAudio("heroplanet.mp3");
-        //loadAudio("love4eva.mp3");
+        loadAudio("love4eva.mp3");
         //getAudioPlayer().play();
         //getAudioBuffer();
 	   
@@ -73,7 +65,7 @@ public class MyVisual extends Visual
         
     }
 
-    /*
+    
     public void keyPressed()
     {
         if (key == ' ')
@@ -82,7 +74,7 @@ public class MyVisual extends Visual
             getAudioPlayer().play();
         }
     }
-    */
+    
 
     public void draw()
     {
