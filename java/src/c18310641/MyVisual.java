@@ -43,8 +43,9 @@ public class MyVisual extends Visual
         setFrameSize(256);
 
         startMinim();
-        loadAudio("heroplanet.mp3");
-        //getaAp().play();
+        //loadAudio("love4eva.mp3");
+        loadAudio("hihigh.mp3");
+       
         
 
         // Call this instead to read audio from the microphone
@@ -79,19 +80,6 @@ public class MyVisual extends Visual
         {
             e.printStackTrace();
         }
-        /*
-        //hearts
-        background(255);
-        translate(width/2,3*height/4);
-        
-
-        for (int i=0; i<61; i++) {
-            float x = (float) (0.25 * (-pow(i, 2) + 40 * i + 1200) * sin((PI * i) / 180));
-            float y = (float) (-0.25 * (-pow(i, 2) + 40 * i + 1200) * cos((PI * i) / 180));
-            point(x,y); // use these to place your little hearts
-            point(-x,y); // use these to place your little hearts
-        } //end for
-        */
         
         // Call this is you want to use frequency bands
         calculateFrequencyBands(); 
@@ -100,5 +88,36 @@ public class MyVisual extends Visual
         calculateAverageAmplitude();        
         wf.render();
         abv.render();
+
+        //draw hearts
+        hearts(); //heart at middle
+    }
+
+    void hearts() 
+    {
+        
+        //hearts
+        //background(255);
+        //fill(255,0,255);
+        translate(width/2,3*height/4);
+        smooth();
+        fill(255,0,255);
+        strokeWeight(5);
+        stroke(255);
+
+        for (int i=0; i<61; i++) {
+
+            float x = (float) (0.25 * (-pow(i, 2) + 40 * i + 1200) * sin((PI * i) / 180));
+            float y = (float) (-0.25 * (-pow(i, 2) + 40 * i + 1200) * cos((PI * i) / 180));
+
+            point(x,y); // use these to place your little hearts
+            point(-x,y); // use these to place your little hearts
+        } //end for
+        
+        //second heart code
+    /*
+        size(600,600);
+        
+      */
     }
 }
