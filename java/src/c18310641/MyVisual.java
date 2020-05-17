@@ -82,6 +82,8 @@ public class MyVisual extends Visual
         //wf.render(); -- the waves moving
         //abv.render(); -- bars movings
         bub.render(); // -- bubbles moving
+        bub.floup(); // bubbless float up
+        bub.moveback(); // bubbles to float down
 
         //draw hearts
         hearts(); //heart at middle
