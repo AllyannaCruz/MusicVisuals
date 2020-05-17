@@ -22,16 +22,28 @@ public class Square
     public void render()
     {
        mv.colorMode(PApplet.HSB);
+       mv.smooth();
 
        for(int i = 0 ; i < mv.getAudioBuffer().size() ; i ++)
        {
            mv.fill(
-               PApplet.map(i, 0, mv.getAudioBuffer().size(), 0, 255)
+               PApplet.map(i, 0, mv.getAudioBuffer().size(), 0, mv.getAudioBuffer().size())
                , 255
                , 255
            );
 
-           mv.rect(i, sq, sq + sq * mv.getAudioBuffer().get(i), sq);
+           mv.rect(mv.random(i), mv.random(i), 55 , 55);
+       } // end for
+
+       for(int j = 0 ; j < mv.getAudioBuffer().size() ; j++)
+       {
+        mv.fill(
+            PApplet.map(j, 0, mv.getAudioBuffer().size(), mv.getAudioBuffer().size(), 0)
+            , 255
+            , 255
+        );
+
+        mv.rect(800, mv.random(j), 55 , 55);
        } // end for
 
     } // end render()
@@ -40,7 +52,7 @@ public class Square
     public void floup() //must call from MyVisual!!
     {
         sq--;
-        sq = sq + mv.random(-2, 2);
+        sq = sq + mv.random(-20, 20);
     } // end floup
 
     public void moveback() // so ball won't disappear off screen , call from MyVisual!!!
@@ -62,6 +74,6 @@ public class Square
     public void flodown() //bubbles to descend
     {
         sq++;
-        sq = sq - mv.random(-2, 2);
+        sq = sq - mv.random(-20, 20); // change to 2, -2
     } // end flodown()
 }

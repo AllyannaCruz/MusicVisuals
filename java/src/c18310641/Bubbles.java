@@ -22,6 +22,7 @@ public class Bubbles
     public void render()
     {
        mv.colorMode(PApplet.HSB);
+       mv.smooth();
 
        for(int i = 0 ; i < mv.getAudioBuffer().size() ; i ++)
        {
@@ -31,7 +32,7 @@ public class Bubbles
                , 255
            );
 
-           mv.ellipse(i, circ, circ + circ * mv.getAudioBuffer().get(i), circ);
+           mv.ellipse(1024/2, 500/2, circ + circ * mv.getAudioBuffer().get(i), circ);
        } // end for
 
     } // end render()

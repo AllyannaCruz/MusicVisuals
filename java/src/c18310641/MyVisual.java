@@ -20,6 +20,8 @@ public class MyVisual extends Visual
     int sampleRate = 44100;
     
     boolean changesqr = false;
+    boolean multsqr = false;
+    boolean scrbg = false; //change screen background colour
 
     public void settings()
     {
@@ -40,9 +42,19 @@ public class MyVisual extends Visual
             getAudioPlayer().play();
         }
 
+        if(key == '2')
+        {
+            multsqr = ! multsqr;
+        }
+
         if(key == 's')
         {
             changesqr = ! changesqr;
+        }
+
+        if(key == '8')
+        {
+            scrbg = ! scrbg;
         }
     }
 
@@ -89,7 +101,14 @@ public class MyVisual extends Visual
         calculateAverageAmplitude();        
         //wf.render(); -- the waves moving
         //abv.render(); -- bars movings
-        bub.render(); // -- bubbles moving
+
+        if(scrbg) // change background colour to white to black and black to white
+        {
+            background(255);
+        }
+
+        //put bub in if () and create array list - access them as bub[i] in for loop.
+        bub.render(); // -- bubbles moving 
         bub.floup(); // bubbless float up
         bub.moveback(); // bubbles to not disappear off screen
         bub.flodown(); // bubbles to float down
@@ -102,11 +121,20 @@ public class MyVisual extends Visual
             sqr.flodown();
         }
 
+        if(multsqr) // another square
+        {
+            sqr.render(); // -- bubbles moving
+            sqr.floup(); // bubbless float up
+            sqr.moveback(); // bubbles to not disappear off screen
+            sqr.flodown();
+        }
+
+       
         //draw hearts
         hearts(); //heart at middle
     }
 
-    void hearts() 
+    void hearts()  //get heart to move
     {
          
         //hearts
@@ -119,22 +147,21 @@ public class MyVisual extends Visual
         // not colour, COLOR!! 
         //
         
-        
-        for (int i=0; i<61; i++) { // i<freqbrands
+        for(int j=0; j < getAudioBuffer().size(); j++)
+        {
+            for (int i=0; i<getAudioBuffer().size(); i++) { // i<freqbrands
 
-            float x = (float) (0.25 * (-pow(i, 2) + 40 * i + 1200) * sin((PI * i) / 180));
-            float y = (float) (-0.25 * (-pow(i, 2) + 40 * i + 1200) * cos((PI * i) / 180));
+                float x = (float) (0.25 * (-pow(i, 2) + 40 * i + 1200) * sin((PI * i) / 180));
+                float y = (float) (-0.25 * (-pow(i, 2) + 40 * i + 1200) * cos((PI * i) / 180));
 
-            point(x,y); // use these to place your little hearts
-            point(-x,y); // use these to place your little hearts
+                point(x,y); // use these to place your little hearts
+                point(-x,y); // use these to place your little hearts
 
-            //colour
-           stroke(map(i, 0, 61, 0, 255), 255, 255);
-            
-        
-        } //end for
-        
+                //colour
+                stroke(map(i, 0, 61, 0, 255), 255, 255);
+            } //end for
+        } //end outer for
     } // end hearts()
 
 
-}
+} // end MyVisual class

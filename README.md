@@ -14,7 +14,7 @@ Student Number: C18310641
 # Description of the assignment
 For my assignment, I have circles/bubbles bouncing around the screen and when they reach the width of the screen, they bounce off and pop. I have also added squares, when a key is pressed instead of circles/bubble bouncing squares are moving around the scree instead. There is a heart at the middle of the screen that changes colour depending on the sound. The shapes also changes colours depending on the sound.
 # Instructions
-- When you press the space key, the music starts and the visuals start.
+- When you press the space key, the music starts and the visuals start to move.
 - When you press the 's' key, the cicrcles/bubbles turn into squares.
 - When you press the 'c' key, the squares turn into bubbles/squares.
 - When you press the '2' key, the shape multiplies by two.
