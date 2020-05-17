@@ -10,13 +10,16 @@ public class MyVisual extends Visual
     WaveForm wf;
     AudioBandsVisual abv;
     Bubbles bub;
+    Square sqr;
     
     //Minim minim;
     //AudioPlayer player; // make sure to spell stuff correctly!!
     //AudioSample as;
 
     int frameSize = 512;
-	int sampleRate = 44100;
+    int sampleRate = 44100;
+    
+    boolean changesqr = false;
 
     public void settings()
     {
@@ -35,6 +38,11 @@ public class MyVisual extends Visual
         {
             getAudioPlayer().cue(0); 
             getAudioPlayer().play();
+        }
+
+        if(key == 's')
+        {
+            changesqr = ! changesqr;
         }
     }
 
@@ -56,7 +64,7 @@ public class MyVisual extends Visual
         wf = new WaveForm(this);
         abv = new AudioBandsVisual(this);
         bub = new Bubbles(this);
-        
+        sqr = new Square(this);
     }
 
 
@@ -83,7 +91,16 @@ public class MyVisual extends Visual
         //abv.render(); -- bars movings
         bub.render(); // -- bubbles moving
         bub.floup(); // bubbless float up
-        bub.moveback(); // bubbles to float down
+        bub.moveback(); // bubbles to not disappear off screen
+        bub.flodown(); // bubbles to float down
+        
+        if(changesqr)
+        {
+            sqr.render(); // -- bubbles moving
+            sqr.floup(); // bubbless float up
+            sqr.moveback(); // bubbles to not disappear off screen
+            sqr.flodown();
+        }
 
         //draw hearts
         hearts(); //heart at middle
@@ -117,7 +134,7 @@ public class MyVisual extends Visual
         
         } //end for
         
-    }
+    } // end hearts()
 
 
 }
