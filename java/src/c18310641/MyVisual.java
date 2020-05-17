@@ -9,6 +9,7 @@ public class MyVisual extends Visual
 {    
     WaveForm wf;
     AudioBandsVisual abv;
+    Bubbles bub;
     
     //Minim minim;
     //AudioPlayer player; // make sure to spell stuff correctly!!
@@ -54,20 +55,11 @@ public class MyVisual extends Visual
         
         wf = new WaveForm(this);
         abv = new AudioBandsVisual(this);
+        bub = new Bubbles(this);
         
     }
 
-    /*
-    public void keyPressed()
-    {
-        if (key == ' ')
-        {
-            getAudioPlayer().cue(0); 
-            getAudioPlayer().play();
-        }
-    }
-    */
-    
+
 
     public void draw()
     {
@@ -87,8 +79,9 @@ public class MyVisual extends Visual
 
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
-        wf.render();
-        abv.render();
+        //wf.render(); -- the waves moving
+        //abv.render(); -- bars movings
+        bub.render(); // -- bubbles moving
 
         //draw hearts
         hearts(); //heart at middle
