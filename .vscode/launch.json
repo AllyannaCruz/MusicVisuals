@@ -1,10 +1,174 @@
 {
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - Main",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main<java>",
+            "request": "launch",
+            "mainClass": "c18310641.Main",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-GlueGenVersion<java>",
+            "request": "launch",
+            "mainClass": "com.jogamp.common.GlueGenVersion",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-NativeWindowVersion<java>",
+            "request": "launch",
+            "mainClass": "com.jogamp.nativewindow.NativeWindowVersion",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-NewtVersion<java>",
+            "request": "launch",
+            "mainClass": "com.jogamp.newt.NewtVersion",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-GLWindow<java>",
+            "request": "launch",
+            "mainClass": "com.jogamp.newt.opengl.GLWindow",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MainThread<java>",
+            "request": "launch",
+            "mainClass": "com.jogamp.newt.util.MainThread",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-JoglVersion<java>",
+            "request": "launch",
+            "mainClass": "com.jogamp.opengl.JoglVersion",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-GLCanvas<java>",
+            "request": "launch",
+            "mainClass": "com.jogamp.opengl.awt.GLCanvas",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-GLCanvas<java>(1)",
+            "request": "launch",
+            "mainClass": "com.jogamp.opengl.swt.GLCanvas",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CompileShaderNVidia<java>",
+            "request": "launch",
+            "mainClass": "com.jogamp.opengl.util.glsl.sdk.CompileShaderNVidia",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main<java>(1)",
             "request": "launch",
             "mainClass": "ie.tudublin.Main",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-jlc<java>",
+            "request": "launch",
+            "mainClass": "javazoom.jl.converter.jlc",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-jlap<java>",
+            "request": "launch",
+            "mainClass": "javazoom.jl.player.advanced.jlap",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-jlp<java>",
+            "request": "launch",
+            "mainClass": "javazoom.jl.player.jlp",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-IcyInputStream<java>",
+            "request": "launch",
+            "mainClass": "javazoom.spi.mpeg.sampled.file.tag.IcyInputStream",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ResourceFile<java>",
+            "request": "launch",
+            "mainClass": "jogamp.graph.font.typecast.ot.mac.ResourceFile",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LinuxEventDeviceTracker<java>",
+            "request": "launch",
+            "mainClass": "jogamp.newt.driver.linux.LinuxEventDeviceTracker",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-X11UnderlayTracker<java>",
+            "request": "launch",
+            "mainClass": "jogamp.newt.driver.x11.X11UnderlayTracker",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-VersionApplet<java>",
+            "request": "launch",
+            "mainClass": "jogamp.opengl.awt.VersionApplet",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Type_Widget<java>",
+            "request": "launch",
+            "mainClass": "jogamp.opengl.glu.mipmap.Type_Widget",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PngDeinterlacer<java>",
+            "request": "launch",
+            "mainClass": "jogamp.opengl.util.pngj.PngDeinterlacer",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-OSInfo<java>",
+            "request": "launch",
+            "mainClass": "org.sqlite.util.OSInfo",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PApplet<java>",
+            "request": "launch",
+            "mainClass": "processing.core.PApplet",
             "projectName": "java"
         }
     ]

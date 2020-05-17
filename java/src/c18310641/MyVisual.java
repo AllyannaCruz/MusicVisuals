@@ -9,6 +9,7 @@ public class MyVisual extends Visual
 {    
     WaveForm wf;
     AudioBandsVisual abv;
+    
     //Minim minim;
     //AudioPlayer player; // make sure to spell stuff correctly!!
     //AudioSample as;
@@ -95,29 +96,33 @@ public class MyVisual extends Visual
 
     void hearts() 
     {
-        
+         
         //hearts
         //background(255);
         //fill(255,0,255);
         translate(width/2,3*height/4);
         smooth();
-        fill(255,0,255);
+        colorMode(HSB);
         strokeWeight(5);
-        stroke(255);
-
-        for (int i=0; i<61; i++) {
+        // not colour, COLOR!! 
+        //
+        
+        
+        for (int i=0; i<61; i++) { // i<freqbrands
 
             float x = (float) (0.25 * (-pow(i, 2) + 40 * i + 1200) * sin((PI * i) / 180));
             float y = (float) (-0.25 * (-pow(i, 2) + 40 * i + 1200) * cos((PI * i) / 180));
 
             point(x,y); // use these to place your little hearts
             point(-x,y); // use these to place your little hearts
+
+            //colour
+           stroke(map(i, 0, 61, 0, 255), 255, 255);
+            
+        
         } //end for
         
-        //second heart code
-    /*
-        size(600,600);
-        
-      */
     }
+
+
 }
