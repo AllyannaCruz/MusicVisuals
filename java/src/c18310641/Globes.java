@@ -30,7 +30,7 @@ public class Globes
         mv.lights();
         mv.fill(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0, mv.getAudioBuffer().size()), 255, 255);
         mv.stroke(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, mv.getAudioBuffer().size(), 0), 255, 255);
-        mv.camera(mv.mouseX/2, mv.mouseY/2, mv.mouseX, mv.mouseY, 0, -1, 0, 1, 0);
+        mv.camera(mv.mouseX/2, mv.mouseY/2, mv.mouseX/3, mv.mouseX, mv.mouseY, 0, 0, 1, 0);
         mv.translate(mv.mouseX, mv.mouseY, -250);
         mv.rotateY(angle);
         mv.rotateX(angle);

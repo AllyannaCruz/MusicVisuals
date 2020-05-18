@@ -27,7 +27,7 @@ public class Sticks
     public void stickwave()
     {
         mv.colorMode(PApplet.HSB);
-        mv.strokeWeight(4);
+        mv.strokeWeight(3);
         for(int i = 0 ; i < mv.getAudioBuffer().size() ; i ++)
         {
             mv.stroke(
