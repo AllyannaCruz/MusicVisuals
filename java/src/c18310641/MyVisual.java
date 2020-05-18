@@ -13,6 +13,7 @@ public class MyVisual extends Visual
     Stars star;
     Sticks stick;
     Horizon hzn;
+    Globes globe;
     //Hearts heart;
     
     //Minim minim;
@@ -25,6 +26,7 @@ public class MyVisual extends Visual
     boolean changesqr = false;
     boolean multsqr = false;
     boolean scrbg = false; //change screen background colour
+    int sph = 0;
 
     public void settings()
     {
@@ -60,6 +62,15 @@ public class MyVisual extends Visual
         {
             scrbg = ! scrbg;
         }
+
+    } // end keyPressed()
+
+    public void mouseClicked()
+    {
+        if(sph == 0)
+        {
+            globe.sph_glo();
+        }
     }
 
     public void setup()
@@ -84,6 +95,7 @@ public class MyVisual extends Visual
         star = new Stars(this);
         stick = new Sticks(this);
         hzn = new Horizon(this);
+        globe = new Globes(this);
         //heart = new Hearts(this);
     }
 
@@ -153,15 +165,12 @@ public class MyVisual extends Visual
         //heart.render();
 
         //draw hearts
-        hearts(); //heart at middle
+        hearts(); //heart at middle but disperses according to AudioBuffer()
+        heartdraw();
 
-        strokeWeight(3); //when mouse pressed a bunch of smaller spheres show up -- put in diff class
-        lights();
-        stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
-        camera(0, 0, 0, 0, 0, -1, 0, 1, 0);
-        translate(0,0, -250);
-        sphere(100);
-    }
+        
+        
+    } // end draw()
 
     
     void hearts()  //get heart to move
@@ -185,8 +194,8 @@ public class MyVisual extends Visual
                 float x = (float) (0.25 * (-pow(i, 2) + 40 * i + 1200) * sin((PI * i) / 180));
                 float y = (float) (-0.25 * (-pow(i, 2) + 40 * i + 1200) * cos((PI * i) / 180));
 
-                point(getAudioBuffer().get(i)* x,y); // use these to place your little hearts
-                point(-x,y); // use these to place your little hearts
+                point(getAudioBuffer().get(i) * x,y); // use these to place your little hearts
+                point(getAudioBuffer().get(i) * -x,y); // use these to place your little hearts
 
                 //colour
                 //stroke(map(i, 0, 61, 0, 255), 255, 255);
@@ -204,6 +213,47 @@ public class MyVisual extends Visual
             } //end for
         } //end outer for
     } // end hearts()
+
+    void heartdraw()  //get heart to move
+    {
+         
+        //hearts
+        //background(255);
+        //fill(255,0,255);
+        //translate(width/2,3*height/4);
+        colorMode(HSB);
+        smooth();
+        strokeWeight(5);
+        // not colour, COLOR!! 
+        //
+        
+        for(int j=0; j < getAudioBuffer().size(); j++)
+        {
+            translate(width/2,3*height/4);
+            for (int i=0; i < getAudioBuffer().size(); i++) 
+            { 
+                float x = (float) (0.25 * (-pow(i, 2) + 40 * i + 1200) * sin((PI * i) / 180));
+                float y = (float) (-0.25 * (-pow(i, 2) + 40 * i + 1200) * cos((PI * i) / 180));
+
+                point(x,y); // use these to place your little hearts
+                point(-x,y); // use these to place your little hearts
+
+                //colour
+                //stroke(map(i, 0, 61, 0, 255), 255, 255);
+                fill(
+                    map(i, 0, getAudioBuffer().size(), getAudioBuffer().size(), 0)
+                    , 255
+                    , 255
+                );
+
+                stroke(
+                    map(i, 0, getAudioBuffer().size(), getAudioBuffer().size(), 0)
+                    , 255
+                    , 255
+                );
+            } //end for
+        } //end outer for
+    } // end heartdraw()
     
 
 } // end MyVisual class

@@ -28,7 +28,7 @@ public class Horizon
             );
 
             mv.line(PApplet.lerp(hr, mv.getAudioBuffer().size(), (float) 1.0), hr, i + 800,
-                    hr + hr * mv.getAudioBuffer().get(i));
+                scrheight/2 + hr * mv.getAmplitude());
         } // end for
     } // end horizon()
 }

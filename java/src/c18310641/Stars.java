@@ -53,8 +53,8 @@ public class Stars
             for (float a = 0; a <= TWO_PI; a += angle) 
             {
                 mv.vertex(starx, stary);
-                starx = (float) (mv.getAudioBuffer().get((int) a) + Math.cos(a + halfAngle) * mv.getAudioBuffer().size());
-                stary = (float) (mv.getAudioBuffer().get((int) a) + Math.sin(a + halfAngle) * mv.getAudioBuffer().size());
+                starx = (float) (mv.getAudioBuffer().get((int) a) + Math.cos(a + halfAngle) * mv.getAmplitude());  // try fix this
+                stary = (float) (mv.getAudioBuffer().get((int) a) + Math.sin(a + halfAngle) * mv.getAmplitude());
                 mv.vertex(starx, stary);
             } // end inner for
             mv.endShape();

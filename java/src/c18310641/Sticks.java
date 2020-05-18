@@ -15,7 +15,7 @@ public class Sticks
 
     public Sticks(MyVisual mv)
     {
-        this.mv =  mv;
+        this.mv =  mv;   
         stk = this.mv.height / 2;
         x = this.mv.width / 2;
         y = stk; //height
