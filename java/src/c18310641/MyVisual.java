@@ -103,6 +103,9 @@ public class MyVisual extends Visual {
         // abv.render(); -- bars movings
 
         bub.render();
+        bub.floup();
+        bub.moveback();
+        bub.flodown();
 
         if (scrbg) // change background colour to white to black and black to white
         {

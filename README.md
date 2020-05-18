@@ -127,9 +127,11 @@ This was an enjoyable assignment and I feel that I learned a lot from trial and 
 # Youtube Video
 
 
-This is a youtube video:
+I had troubles with screen recording I tried different apps but some of them just don't record sound or don't record the visuals.
+I had to record on my phone.
 
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+[![YouTube]](https://www.youtube.com/watch?v=deIxISgXYag)
 
 
+[![YouTube]](https://youtu.be/ZkFxvoGrsO8)
 
