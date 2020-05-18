@@ -28,7 +28,8 @@ public class MyVisual extends Visual
 
     public void settings()
     {
-        size(1024, 500);
+        size(1024, 500, P3D);
+        println("CWD: " + System.getProperty("user.dir"));
         
         // Use this to make fullscreen
         //fullScreen();
@@ -145,7 +146,7 @@ public class MyVisual extends Visual
         //star.moveback();
         //star.flodown();
         
-        stick.stickwave();
+        stick.stickwave();  // edit! getSmoothAmp
 
         hzn.hrzn(); // waves at the middle
 
@@ -153,6 +154,13 @@ public class MyVisual extends Visual
 
         //draw hearts
         hearts(); //heart at middle
+
+        strokeWeight(3); //when mouse pressed a bunch of smaller spheres show up -- put in diff class
+        lights();
+        stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
+        camera(0, 0, 0, 0, 0, -1, 0, 1, 0);
+        translate(0,0, -250);
+        sphere(100);
     }
 
     

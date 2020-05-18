@@ -12,6 +12,7 @@ public class Bubbles
     float x;
     float y;
 
+    private String movement;
 
     public Bubbles(MyVisual mv)
     {
@@ -71,6 +72,75 @@ public class Bubbles
         circ = circ - mv.random(-2, 2);
     } // end flodown()
 
+    public MyVisual getMv() {
+        return mv;
+    }
+
+    public void setMv(MyVisual mv) {
+        this.mv = mv;
+    }
+
+    public float getCirc() {
+        return circ;
+    }
+
+    public void setCirc(float circ) {
+        this.circ = circ;
+    }
+
+    public float getScrwidth() {
+        return scrwidth;
+    }
+
+    public void setScrwidth(float scrwidth) {
+        this.scrwidth = scrwidth;
+    }
+
+    public float getScrheight() {
+        return scrheight;
+    }
+
+    public void setScrheight(float scrheight) {
+        this.scrheight = scrheight;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    public String setMovement()
+    {
+        return movement;
+    }
+
+    public void getMovement(String name)
+    {
+        this.movement = movement;
+    }
+
     //For now bubbles are just floating
+    public void update()
+    {
+        System.out.println("Bubble pop!");
+    }
+
+
+    @Override
+    public String toString() {
+        return "Bubbles [circ=" + circ + ", movement=" + movement + ", mv=" + mv + ", scrheight=" + scrheight
+                + ", scrwidth=" + scrwidth + ", x=" + x + ", y=" + y + "]";
+    }
 
 } // end Bubbles class

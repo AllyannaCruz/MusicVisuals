@@ -27,7 +27,9 @@ public class Horizon
                 , 255
             );
 
-            mv.line(i, hr, i + 800,  hr + hr * mv.getAudioBuffer().get(i));
+            mv.line(PApplet.lerp(hr, mv.getAudioBuffer().size(), (float) 1.0), hr, i + 800,
+                    hr + hr * mv.getAudioBuffer().get(i));
         } // end for
     } // end horizon()
 }
+//try lerp(hr, i +800) -- use audiobandsvisual.

@@ -11,16 +11,16 @@ public class Stars
     float y = 0;
     float a = 0;
 
-    float radius1 = 70;
-    float radius2 = 25;
-    int npoints = 5;
+    float radius1 = 30;
+    float radius2 = 70;
+    int npoints = 6;
     float scrwidth = 1024;
     float scrheight = 500;
     double TWO_PI = Math.PI * 2;
     float angle = (float) (TWO_PI / npoints);
     float halfAngle = (float) (angle / 2.0);
     float starx = (float) (x + Math.cos(a) * radius2);
-    float stary = (float) (y + Math.sin(a) * radius2);
+    float stary = (float) (y + Math.sin(a) * radius1);
 
     float frameCount = 512;
 
@@ -38,10 +38,10 @@ public class Stars
         mv.smooth();
         mv.noFill();
  
-        for(int i = 0 ; i < mv.getAudioBuffer().size() ; i ++)
+        for(int i = 0 ; i < mv.getAudioBuffer().get(i) ; i ++)
         {
             mv.stroke(
-                PApplet.map(i, 0, mv.getAudioBuffer().size(), 0, mv.getAudioBuffer().size())
+                PApplet.map(i, 0, mv.getAudioBuffer().size(), 0, mv.getAudioBuffer().get(i))
                 , 255
                 , 255
             );
@@ -53,8 +53,8 @@ public class Stars
             for (float a = 0; a <= TWO_PI; a += angle) 
             {
                 mv.vertex(starx, stary);
-                starx = (float) (x + Math.cos(a + halfAngle) * radius1);
-                stary = (float) (y + Math.sin(a + halfAngle) * radius1);
+                starx = (float) (mv.getAudioBuffer().get((int) a) + Math.cos(a + halfAngle) * mv.getAudioBuffer().size());
+                stary = (float) (mv.getAudioBuffer().get((int) a) + Math.sin(a + halfAngle) * mv.getAudioBuffer().size());
                 mv.vertex(starx, stary);
             } // end inner for
             mv.endShape();
@@ -65,8 +65,9 @@ public class Stars
     public void starDraw2()
     {
             mv.pushMatrix();
-            mv.translate((float) (scrwidth*0.8), (float) (scrheight*0.5));
-            mv.rotate((float) (frameCount / -100.0));
+            //mv.translate((float) (scrwidth*0.8), (float) (scrheight*0.5));
+            mv.translate((float) (scrwidth*0.8), mv.getAudioBuffer().size());
+            mv.rotate((float) (mv.getFrameSize()/ 100.0));
             starDraw(x, y, radius1, radius2, npoints); 
             mv.popMatrix();
         
