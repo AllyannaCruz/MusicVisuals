@@ -26,7 +26,6 @@ public class Globes
         mv.colorMode(PApplet.HSB);
         mv.pushMatrix();
         mv.strokeWeight(1);
-     //when mouse pressed a bunch of smaller spheres show up -- put in diff class
         mv.lights();
         mv.fill(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0, mv.getAudioBuffer().size()), 255, 255);
         mv.stroke(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, mv.getAudioBuffer().size(), 0), 255, 255);

@@ -54,7 +54,8 @@ public class MyVisual extends Visual {
     } // end keyPressed()
 
     public void mouseClicked() {
-        if (sph == 0) {
+        if (sph == 0) 
+        {
             globe.sph_glo();
         }
     }
@@ -98,7 +99,7 @@ public class MyVisual extends Visual {
 
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();
-        wf.vert(); // -- the waves moving
+        wf.vert(); // the waves moving, rainbow and see through
         // abv.render(); -- bars movings
 
         if (scrbg) // change background colour to white to black and black to white
@@ -106,19 +107,11 @@ public class MyVisual extends Visual {
             background(255);
         }
 
-        // bub.render(); // -- bubbles moving
-        // bub.floup(); // bubbles used to float up but not just stays in place
-        // bub.moveback(); // bubbles to not disappear off screen
-        // bub.flodown(); // bubbles to float down
-
         if (changesqr) {
-            sqr.render(); // -- bubbles moving
-            // sqr.floup(); // bubbless float up
-            // sqr.moveback(); // bubbles to not disappear off screen
-            // sqr.flodown();
+            sqr.render(); // bubbles moving
         }
 
-        if (multstr) // to draw stars
+        if (multstr) // to draw stars, I tried to code stars but I ended up making hexagons instead of stars
         {
             star.starDraw2();
             star.floup();
@@ -126,9 +119,9 @@ public class MyVisual extends Visual {
             star.flodown();
         }
         
-        hexg.render();
+        hexg.render(); // hexagons floating and looks like it's coming from behind and into the screen
 
-        stick.stickwave();
+        stick.stickwave(); // sticks that shows the waveform
 
         hzn.hrzn(); // waves at the middle
 
@@ -143,16 +136,9 @@ public class MyVisual extends Visual {
 
     void hearts() // get heart to move
     {
-         
-        //hearts
-        //background(255);
-        //fill(255,0,255);
-        //translate(width/2,3*height/4);
         colorMode(HSB);
         smooth();
         strokeWeight(5);
-        // not colour, COLOR!! 
-        //
         
         for(int j=0; j < getAudioBuffer().size(); j++)
         {
@@ -162,8 +148,8 @@ public class MyVisual extends Visual {
                 float x = (float) (0.25 * (-pow(i, 2) + 40 * i + 1200) * sin((PI * i) / 180));
                 float y = (float) (-0.25 * (-pow(i, 2) + 40 * i + 1200) * cos((PI * i) / 180));
 
-                point(getAudioBuffer().get(i) * x,y); // use these to place your little hearts
-                point(getAudioBuffer().get(i) * -x,y); // use these to place your little hearts
+                point(getAudioBuffer().get(i) * x,y); // places dots
+                point(getAudioBuffer().get(i) * -x,y); // places dots
 
                 //colour
                 //stroke(map(i, 0, 61, 0, 255), 255, 255);
@@ -186,16 +172,9 @@ public class MyVisual extends Visual {
     //heart keeps its shape, you can still see that it's a heart
     void heartdraw()  
     {
-         
-        //hearts
-        //background(255);
-        //fill(255,0,255);
-        //translate(width/2,3*height/4);
         colorMode(HSB);
         smooth();
         strokeWeight(5);
-        // not colour, COLOR!! 
-        //
         
         for(int j=0; j < getAudioBuffer().size(); j++)
         {
@@ -205,11 +184,9 @@ public class MyVisual extends Visual {
                 float x = (float) (0.25 * (-pow(i, 2) + 40 * i + 1200) * sin((PI * i) / 180));
                 float y = (float) (-0.25 * (-pow(i, 2) + 40 * i + 1200) * cos((PI * i) / 180));
 
-                point(x,y); // use these to place your little hearts
-                point(-x,y); // use these to place your little hearts
+                point(x,y); // places dots
+                point(-x,y); // places dots
 
-                //colour
-                //stroke(map(i, 0, 61, 0, 255), 255, 255);
                 fill(
                     map(i, 0, getAudioBuffer().size(), getAudioBuffer().size(), 0)
                     , 255

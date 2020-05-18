@@ -31,5 +31,4 @@ public class Horizon
                 scrheight/2 + hr * mv.getAmplitude());
         } // end for
     } // end horizon()
-}
-//try lerp(hr, i +800) -- use audiobandsvisual.
+} // end Horizon class

@@ -119,7 +119,7 @@ public class Stars
    
     // !!! Code down here does not do anything, I wanted the shapes to float up and down at first.
     // For the star to move up
-    public void floup() //must call from MyVisual!!
+    public void floup() 
     {
         starshap--;
         starshap = starshap + mv.random(-2, 2);

@@ -56,8 +56,9 @@ public class Square
 
     } // end render()
 
-    // For the bubbles to move up
-    public void floup() //must call from MyVisual!!
+
+    // !!! Code down here does not do anything, I wanted the shapes to float up and down at first.
+    public void floup() 
     {
         sq--;
         sq = sq + mv.random(-20, 20);
