@@ -3,7 +3,6 @@ package c18310641;
 import ie.tudublin.Visual;
 import ie.tudublin.VisualException;
 //import ddf.minim.*;
-//import processing.sound.*; -- must download zip file ?
 
 public class MyVisual extends Visual 
 {    
@@ -12,6 +11,9 @@ public class MyVisual extends Visual
     Bubbles bub;
     Square sqr;
     Stars star;
+    Sticks stick;
+    Horizon hzn;
+    //Hearts heart;
     
     //Minim minim;
     //AudioPlayer player; // make sure to spell stuff correctly!!
@@ -79,6 +81,9 @@ public class MyVisual extends Visual
         bub = new Bubbles(this);
         sqr = new Square(this);
         star = new Stars(this);
+        stick = new Sticks(this);
+        hzn = new Horizon(this);
+        //heart = new Hearts(this);
     }
 
 
@@ -101,8 +106,10 @@ public class MyVisual extends Visual
 
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
-        //wf.render(); -- the waves moving
+        wf.vert(); //-- the waves moving
+        //wf.sticks(); // stick waves
         //abv.render(); -- bars movings
+
 
         if(scrbg) // change background colour to white to black and black to white
         {
@@ -138,40 +145,57 @@ public class MyVisual extends Visual
         //star.moveback();
         //star.flodown();
         
+        stick.stickwave();
 
+        hzn.hrzn(); // waves at the middle
+
+        //heart.render();
 
         //draw hearts
         hearts(); //heart at middle
     }
 
+    
     void hearts()  //get heart to move
     {
          
         //hearts
         //background(255);
         //fill(255,0,255);
-        translate(width/2,3*height/4);
-        smooth();
+        //translate(width/2,3*height/4);
         colorMode(HSB);
+        smooth();
         strokeWeight(5);
         // not colour, COLOR!! 
         //
         
         for(int j=0; j < getAudioBuffer().size(); j++)
         {
-            for (int i=0; i<getAudioBuffer().size(); i++) { // i<freqbrands
-
+            translate(width/2,3*height/4);
+            for (int i=0; i < getAudioBuffer().size(); i++) 
+            { 
                 float x = (float) (0.25 * (-pow(i, 2) + 40 * i + 1200) * sin((PI * i) / 180));
                 float y = (float) (-0.25 * (-pow(i, 2) + 40 * i + 1200) * cos((PI * i) / 180));
 
-                point(x,y); // use these to place your little hearts
+                point(getAudioBuffer().get(i)* x,y); // use these to place your little hearts
                 point(-x,y); // use these to place your little hearts
 
                 //colour
-                stroke(map(i, 0, 61, 0, 255), 255, 255);
+                //stroke(map(i, 0, 61, 0, 255), 255, 255);
+                fill(
+                    map(i, 0, getAudioBuffer().size(), getAudioBuffer().size(), 0)
+                    , 255
+                    , 255
+                );
+
+                stroke(
+                    map(i, 0, getAudioBuffer().size(), getAudioBuffer().size(), 0)
+                    , 255
+                    , 255
+                );
             } //end for
         } //end outer for
     } // end hearts()
-
+    
 
 } // end MyVisual class

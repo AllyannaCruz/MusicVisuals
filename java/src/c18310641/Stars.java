@@ -11,8 +11,8 @@ public class Stars
     float y = 0;
     float a = 0;
 
-    float radius1 = 200;
-    float radius2 = 400;
+    float radius1 = 70;
+    float radius2 = 25;
     int npoints = 5;
     float scrwidth = 1024;
     float scrheight = 500;

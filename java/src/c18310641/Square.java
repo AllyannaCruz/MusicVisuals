@@ -51,7 +51,7 @@ public class Square
                 , 255
             );
 
-            mv.rect(800, mv.random(j), sq + sq * mv.getAudioBuffer().get(j), sq + sq * mv.getAudioBuffer().get(j));
+            mv.rect(800, mv.getBands().length, sq + sq * mv.getAudioBuffer().get(j), sq + sq * mv.getAudioBuffer().get(j));
        } // end for
 
     } // end render()

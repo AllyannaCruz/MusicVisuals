@@ -6,6 +6,8 @@ public class Bubbles
 {
     MyVisual mv;
     float circ = 0;
+    float scrwidth = 1024;
+    float scrheight = 500;
 
     float x;
     float y;
@@ -32,8 +34,10 @@ public class Bubbles
                , 255
                , 255
            );
-
-           mv.ellipse(1024/2, 500/2, circ + circ * mv.getAudioBuffer().get(i), circ);
+           
+           mv.translate((float) (scrwidth * 0.8), (float) (scrheight * 0.8));
+           mv.rotate((float) (Math.PI * 3.0));
+           mv.ellipse(scrwidth/4, scrheight/2, circ + circ * mv.getAudioBuffer().get(i), circ);
        } // end for
 
     } // end render()

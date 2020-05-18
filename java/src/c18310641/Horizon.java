@@ -2,26 +2,23 @@ package c18310641;
 
 import processing.core.*;
 
-// This is an example of a visual that renders the waveform
-public class WaveForm
+public class Horizon 
 {
     MyVisual mv;
-    float cy = 0;
+    float hr = 0;
 
     float scrwidth = 1024;
     float scrheight = 500;
 
-    public WaveForm(MyVisual mv)
+    public Horizon(MyVisual mv)
     {
         this.mv = mv;
-        cy = this.mv.height / 2;
+        hr = this.mv.height / 2;
     }
 
-    public void vert()
+    public void hrzn()
     {
         mv.colorMode(PApplet.HSB);
-        mv.strokeWeight(1);
-        mv.smooth();
         for(int i = 0 ; i < mv.getAudioBuffer().size() ; i ++)
         {
             mv.stroke(
@@ -30,9 +27,7 @@ public class WaveForm
                 , 255
             );
 
-            mv.line(i, 0, i, mv.height + mv.height * mv.getAudioBuffer().get(i));
-            mv.rotate((float) (Math.PI * 3.0));
+            mv.line(i, hr, i + 800,  hr + hr * mv.getAudioBuffer().get(i));
         } // end for
-    } // end vert()
-
-} // end Waveform clss
+    } // end horizon()
+}
