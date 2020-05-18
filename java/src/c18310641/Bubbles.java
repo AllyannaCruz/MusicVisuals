@@ -12,10 +12,9 @@ public class Bubbles
     float x;
     float y;
 
-    private String movement;
-
     public Bubbles(MyVisual mv)
     {
+        super();
         this.mv =  mv;
         circ = this.mv.height / 2;
         x = this.mv.width / 2;
@@ -118,29 +117,6 @@ public class Bubbles
 
     public void setY(float y) {
         this.y = y;
-    }
-
-    public String setMovement()
-    {
-        return movement;
-    }
-
-    public void getMovement(String name)
-    {
-        this.movement = movement;
-    }
-
-    //For now bubbles are just floating
-    public void update()
-    {
-        System.out.println("Bubble pop!");
-    }
-
-
-    @Override
-    public String toString() {
-        return "Bubbles [circ=" + circ + ", movement=" + movement + ", mv=" + mv + ", scrheight=" + scrheight
-                + ", scrwidth=" + scrwidth + ", x=" + x + ", y=" + y + "]";
     }
 
 } // end Bubbles class

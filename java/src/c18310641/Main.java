@@ -1,7 +1,6 @@
 package c18310641;
 
 import example.CubeVisual;
-// no need to import example.MyVisual because the file for submission is in the c18310641 package;
 
 
 public class Main
@@ -22,14 +21,7 @@ public class Main
         
     }
     
-    //heart
-    /*
-    public void startHeart()
-    {
-        String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch(a, new MyVisual());
-    }
-    */
+
 
     //MyVisual
     public void myVisual()

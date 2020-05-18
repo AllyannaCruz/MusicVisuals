@@ -6,14 +6,15 @@ import processing.core.*;
 public class Stars 
 {
     MyVisual mv;
-    float starshap = 0; // look if u can change into private
+    float starshap = 0; 
     float x = 0;
     float y = 0;
     float a = 0;
+    float ang = 0;
 
     float radius1 = 30;
     float radius2 = 70;
-    int npoints = 6;
+    int npoints = 6; // number of vertices -- hexagon
     float scrwidth = 1024;
     float scrheight = 500;
     double TWO_PI = Math.PI * 2;
@@ -36,43 +37,90 @@ public class Stars
     {
         mv.colorMode(PApplet.HSB);
         mv.smooth();
-        mv.noFill();
+        //mv.noFill();
  
-        for(int i = 0 ; i < mv.getAudioBuffer().get(i) ; i ++)
-        {
-            mv.stroke(
-                PApplet.map(i, 0, mv.getAudioBuffer().size(), 0, mv.getAudioBuffer().get(i))
-                , 255
-                , 255
-            );
-        } //end for
-
+        mv.pushMatrix();
         for(int j = 0; j < mv.getAudioBuffer().size(); j++)
         {
             mv.beginShape();
             for (float a = 0; a <= TWO_PI; a += angle) 
             {
                 mv.vertex(starx, stary);
-                starx = (float) (mv.getAudioBuffer().get((int) a) + Math.cos(a + halfAngle) * mv.getAmplitude());  // try fix this
-                stary = (float) (mv.getAudioBuffer().get((int) a) + Math.sin(a + halfAngle) * mv.getAmplitude());
+                starx = (float) (mv.getAudioBuffer().get((int) a) + Math.cos(a + halfAngle) * 180 ); 
+                stary = (float) (mv.getAudioBuffer().get((int) a) + Math.sin(a + halfAngle) * 180 );
                 mv.vertex(starx, stary);
+                mv.translate((float) (scrwidth*0.8), mv.getAudioBuffer().size());
+                mv.rotate((float) (mv.getAudioBuffer().size()/ 100.0));
+                //mv.rotate((float) (Math.PI * 3.0));
             } // end inner for
             mv.endShape();
+            mv.stroke(
+                    PApplet.map(j, 0, mv.getAudioBuffer().size(), 0, mv.getAudioBuffer().size())
+                    , 255
+                    , 255
+                );
+
+                mv.fill(
+                    PApplet.map(j, 0, mv.getAudioBuffer().size(), mv.getAudioBuffer().size(), 0)
+                    , 255
+                    , 255
+                );
+               // mv.rotate((float) (Math.PI * 3.0));
         } // end outer for
-        
-    } // end render()
+       
+        mv.popMatrix();
+        //ang += 0.01f;
+
+
+    } // end starDraw()
+
+    public void hex(float x, float y, float radius1, float radius2, int npoints) 
+    {
+        mv.colorMode(PApplet.HSB);
+        mv.smooth();
+        //mv.noFill();
+ 
+        mv.pushMatrix();
+        for(int j = 0; j < mv.getAudioBuffer().size(); j++)
+        {
+            mv.beginShape();
+            for (float a = 0; a <= TWO_PI; a += angle) 
+            {
+                mv.vertex(starx, stary);
+                starx = (float) (mv.getAudioBuffer().get((int) a) + Math.cos(a + halfAngle) * 180 );  // try fix this
+                stary = (float) (mv.getAudioBuffer().get((int) a) + Math.sin(a + halfAngle) * 180 );
+                mv.vertex(starx, stary);
+                mv.translate((float) (scrwidth*0.8), mv.getAudioBuffer().size());
+                mv.rotate((float) (mv.getAudioBuffer().size()/ 100.0));
+                mv.rotate((float) (Math.PI * 3.0));
+            } // end inner for
+            mv.endShape();
+            mv.stroke(
+                    PApplet.map(j, 0, mv.getAudioBuffer().size(), 0, mv.getAudioBuffer().size())
+                    , 255
+                    , 255
+                );
+
+                mv.fill(
+                    PApplet.map(j, 0, mv.getAudioBuffer().size(), mv.getAudioBuffer().size(), 0)
+                    , 255
+                    , 255
+                );
+                //mv.rotate((float) (Math.PI * 3.0));
+        } // end outer for
+       
+        mv.popMatrix();
+
+    } // end hex()
 
     public void starDraw2()
     {
-            mv.pushMatrix();
-            //mv.translate((float) (scrwidth*0.8), (float) (scrheight*0.5));
-            mv.translate((float) (scrwidth*0.8), mv.getAudioBuffer().size());
-            mv.rotate((float) (mv.getFrameSize()/ 100.0));
-            starDraw(x, y, radius1, radius2, npoints); 
-            mv.popMatrix();
-        
+        starDraw(x, y, radius1, radius2, npoints);
+        hex(x, y, radius1, radius2, npoints);
+
     } // end starDraw2()
    
+    // !!! Code down here does not do anything, I wanted the shapes to float up and down at first.
     // For the star to move up
     public void floup() //must call from MyVisual!!
     {

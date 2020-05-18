@@ -2,10 +2,8 @@ package c18310641;
 
 import ie.tudublin.Visual;
 import ie.tudublin.VisualException;
-//import ddf.minim.*;
 
-public class MyVisual extends Visual 
-{    
+public class MyVisual extends Visual {
     WaveForm wf;
     AudioBandsVisual abv;
     Bubbles bub;
@@ -14,80 +12,67 @@ public class MyVisual extends Visual
     Sticks stick;
     Horizon hzn;
     Globes globe;
-    //Hearts heart;
-    
-    //Minim minim;
-    //AudioPlayer player; // make sure to spell stuff correctly!!
-    //AudioSample as;
+    FloHex hexg;
 
     int frameSize = 512;
     int sampleRate = 44100;
-    
+
     boolean changesqr = false;
-    boolean multsqr = false;
-    boolean scrbg = false; //change screen background colour
+    boolean multstr = false;
+    boolean scrbg = false; // change screen background colour
     int sph = 0;
 
-    public void settings()
-    {
+    public void settings() {
         size(1024, 500, P3D);
         println("CWD: " + System.getProperty("user.dir"));
-        
+
         // Use this to make fullscreen
-        //fullScreen();
+        // fullScreen();
 
         // Use this to make fullscreen and use P3D for 3D graphics
-        //fullScreen(P3D, SPAN); 
+        // fullScreen(P3D, SPAN);
     }
 
-    public void keyPressed()
-    {
-        if (key == ' ')
-        {
-            getAudioPlayer().cue(0); 
+    public void keyPressed() {
+        if (key == ' ') {
+            getAudioPlayer().cue(0);
             getAudioPlayer().play();
         }
 
-        if(key == '2')
-        {
-            multsqr = ! multsqr;
+        if (key == '2') {
+            multstr = !multstr;
         }
 
-        if(key == 's')
-        {
-            changesqr = ! changesqr;
+        if (key == 's') {
+            changesqr = !changesqr;
         }
 
-        if(key == '8')
-        {
-            scrbg = ! scrbg;
+        if (key == '8') {
+            scrbg = !scrbg;
         }
 
     } // end keyPressed()
 
-    public void mouseClicked()
-    {
-        if(sph == 0)
-        {
+    public void mouseClicked() {
+        if (sph == 0) {
             globe.sph_glo();
         }
     }
 
-    public void setup()
-    {
-        
-        //minim = new Minim(this);
+    public void setup() {
+
+        // minim = new Minim(this);
         setFrameSize(256);
 
         startMinim();
-        loadAudio("love4eva.mp3");
-        //loadAudio("hihigh.mp3");
-       
-        
+        // loadAudio("love4eva.mp3");
+        // loadAudio("hihigh.mp3");
+        // loadAudio("zayn.mp3");
+        loadAudio("losingyou.mp3");
 
         // Call this instead to read audio from the microphone
-        //startListening(); 
-        
+        // startListening();
+
         wf = new WaveForm(this);
         abv = new AudioBandsVisual(this);
         bub = new Bubbles(this);
@@ -96,84 +81,69 @@ public class MyVisual extends Visual
         stick = new Sticks(this);
         hzn = new Horizon(this);
         globe = new Globes(this);
-        //heart = new Hearts(this);
-    }
+        hexg = new FloHex(this);
+    } // end setup()
 
-
-
-    public void draw()
-    {
+    public void draw() {
         background(0);
-        try
-        {
+        try {
             // Call this if you want to use FFT data
-            calculateFFT(); 
-        }
-        catch(VisualException e)
-        {
+            calculateFFT();
+        } catch (VisualException e) {
             e.printStackTrace();
         }
-        
+
         // Call this is you want to use frequency bands
-        calculateFrequencyBands(); 
+        calculateFrequencyBands();
 
         // Call this is you want to get the average amplitude
-        calculateAverageAmplitude();        
-        wf.vert(); //-- the waves moving
-        //wf.sticks(); // stick waves
-        //abv.render(); -- bars movings
+        calculateAverageAmplitude();
+        wf.vert(); // -- the waves moving
+        // abv.render(); -- bars movings
 
-
-        if(scrbg) // change background colour to white to black and black to white
+        if (scrbg) // change background colour to white to black and black to white
         {
             background(255);
         }
 
-        //put bub in if () and create array list - access them as bub[i] in for loop.
-        bub.render(); // -- bubbles moving 
-        //bub.floup(); // bubbless float up
-        //bub.moveback(); // bubbles to not disappear off screen
-        //bub.flodown(); // bubbles to float down
-        
-        if(changesqr)
-        {
+        // bub.render(); // -- bubbles moving
+        // bub.floup(); // bubbles used to float up but not just stays in place
+        // bub.moveback(); // bubbles to not disappear off screen
+        // bub.flodown(); // bubbles to float down
+
+        if (changesqr) {
             sqr.render(); // -- bubbles moving
-            //sqr.floup(); // bubbless float up
-            //sqr.moveback(); // bubbles to not disappear off screen
-            //sqr.flodown();
+            // sqr.floup(); // bubbless float up
+            // sqr.moveback(); // bubbles to not disappear off screen
+            // sqr.flodown();
         }
 
-        if(multsqr) // another square
+        if (multstr) // to draw stars
         {
-            sqr.render(); // -- bubbles moving
-            //sqr.floup(); // bubbless float up
-            //sqr.moveback(); // bubbles to not disappear off screen
-            //sqr.flodown();
+            star.starDraw2();
+            star.floup();
+            star.moveback();
+            star.flodown();
         }
 
-        // to draw stars
-        //star.render(700, 400);
-        star.starDraw2();
-        //star.floup();
-        //star.moveback();
-        //star.flodown();
-        
-        stick.stickwave();  // edit! getSmoothAmp
+        // star.floup();
+        // star.moveback();
+        // star.flodown();
+
+        stick.stickwave();
 
         hzn.hrzn(); // waves at the middle
 
-        //heart.render();
-
-        //draw hearts
-        hearts(); //heart at middle but disperses according to AudioBuffer()
+        // draw hearts
+        hearts(); // heart at middle but disperses according to AudioBuffer()
         heartdraw();
 
-        
-        
+        hexg.render();
+
     } // end draw()
 
-    
-    void hearts()  //get heart to move
+
+    void hearts() // get heart to move
     {
          
         //hearts
@@ -214,7 +184,9 @@ public class MyVisual extends Visual
         } //end outer for
     } // end hearts()
 
-    void heartdraw()  //get heart to move
+
+    //heart keeps its shape, you can still see that it's a heart
+    void heartdraw()  
     {
          
         //hearts

@@ -1,6 +1,7 @@
 package c18310641;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 import ddf.minim.*;
 import ddf.minim.analysis.FFT;
 
@@ -17,6 +18,7 @@ public abstract class Visual extends PApplet
 	private AudioPlayer ap;
 	private AudioBuffer ab;
 	private FFT fft;
+	private PImage img;
 
 	private float amplitude  = 0;
 	private float smothedAmplitude = 0;
@@ -140,5 +142,17 @@ public abstract class Visual extends PApplet
 
 	public AudioPlayer getAudioPlayer() {
 		return ap;
+	}
+
+	public PImage getImg() {
+		return img;
+	}
+
+	public void setImg(PImage img) {
+		this.img = img;
+	}
+
+	public Visual(PImage img) {
+		this.img = img;
 	}
 }
