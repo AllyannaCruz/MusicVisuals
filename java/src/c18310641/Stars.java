@@ -51,7 +51,6 @@ public class Stars
                 mv.vertex(starx, stary);
                 mv.translate((float) (scrwidth*0.8), mv.getAudioBuffer().size());
                 mv.rotate((float) (mv.getAudioBuffer().size()/ 100.0));
-                //mv.rotate((float) (Math.PI * 3.0));
             } // end inner for
             mv.endShape();
             mv.stroke(
@@ -65,7 +64,6 @@ public class Stars
                     , 255
                     , 255
                 );
-               // mv.rotate((float) (Math.PI * 3.0));
         } // end outer for
        
         mv.popMatrix();
@@ -106,7 +104,6 @@ public class Stars
                     , 255
                     , 255
                 );
-                //mv.rotate((float) (Math.PI * 3.0));
         } // end outer for
        
         mv.popMatrix();

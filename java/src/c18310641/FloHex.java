@@ -49,7 +49,7 @@ public class FloHex
                     mv.vertex(starx, stary);
                     mv.translate((float) (scrwidth*0.8), mv.getAudioBuffer().size());
                     mv.rotate((float) (mv.getAudioBuffer().size()/ 100.0));
-                    mv.rotate((float) (Math.PI * 3.0));
+                    //mv.rotate((float) (Math.PI * 3.0));
                     mv.rotateY(ang);
                     mv.rotateX(ang);
                 } // end inner for
@@ -65,7 +65,7 @@ public class FloHex
                         , 255
                         , 255
                     );
-                    //mv.rotate((float) (Math.PI * 3.0));
+                    mv.rotate((float) (Math.PI * 3.0));
             } // end outer for
            
             mv.popMatrix();

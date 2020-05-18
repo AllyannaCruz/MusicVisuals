@@ -125,10 +125,8 @@ public class MyVisual extends Visual {
             star.moveback();
             star.flodown();
         }
-
-        // star.floup();
-        // star.moveback();
-        // star.flodown();
+        
+        hexg.render();
 
         stick.stickwave();
 
@@ -138,7 +136,7 @@ public class MyVisual extends Visual {
         hearts(); // heart at middle but disperses according to AudioBuffer()
         heartdraw();
 
-        hexg.render();
+        
 
     } // end draw()
 
