@@ -23,27 +23,35 @@ public class Square
     {
        mv.colorMode(PApplet.HSB);
        mv.smooth();
+       mv.noFill();
 
        for(int i = 0 ; i < mv.getAudioBuffer().size() ; i ++)
        {
-           mv.fill(
-               PApplet.map(i, 0, mv.getAudioBuffer().size(), 0, mv.getAudioBuffer().size())
+           mv.stroke(
+               PApplet.map(i, 0, mv.getAudioBuffer().size(), mv.getAudioBuffer().size(), 0 )
                , 255
                , 255
            );
 
-           mv.rect(mv.random(i), mv.random(i), 55 , 55);
+           mv.rect(mv.getAudioBuffer().size(), mv.getAudioBuffer().size(), sq + sq * mv.getAudioBuffer().get(i), sq + sq * mv.getAudioBuffer().get(i));
        } // end for
 
+       // other rectangle
        for(int j = 0 ; j < mv.getAudioBuffer().size() ; j++)
        {
-        mv.fill(
-            PApplet.map(j, 0, mv.getAudioBuffer().size(), mv.getAudioBuffer().size(), 0)
-            , 255
-            , 255
-        );
+            mv.fill(
+                PApplet.map(j, 0, mv.getAudioBuffer().size(), mv.getAudioBuffer().size(), 0)
+                , 255
+                , 255
+            );
 
-        mv.rect(800, mv.random(j), 55 , 55);
+            mv.stroke(
+                PApplet.map(j, 0, mv.getAudioBuffer().size(), mv.getAudioBuffer().size(), 0)
+                , 255
+                , 255
+            );
+
+            mv.rect(800, mv.random(j), sq + sq * mv.getAudioBuffer().get(j), sq + sq * mv.getAudioBuffer().get(j));
        } // end for
 
     } // end render()

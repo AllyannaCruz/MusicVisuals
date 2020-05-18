@@ -23,6 +23,7 @@ public class Bubbles
     {
        mv.colorMode(PApplet.HSB);
        mv.smooth();
+       mv.noFill();
 
        for(int i = 0 ; i < mv.getAudioBuffer().size() ; i ++)
        {

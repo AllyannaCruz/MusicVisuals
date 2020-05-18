@@ -11,6 +11,7 @@ public class MyVisual extends Visual
     AudioBandsVisual abv;
     Bubbles bub;
     Square sqr;
+    Stars star;
     
     //Minim minim;
     //AudioPlayer player; // make sure to spell stuff correctly!!
@@ -65,8 +66,8 @@ public class MyVisual extends Visual
         setFrameSize(256);
 
         startMinim();
-        //loadAudio("love4eva.mp3");
-        loadAudio("hihigh.mp3");
+        loadAudio("love4eva.mp3");
+        //loadAudio("hihigh.mp3");
        
         
 
@@ -77,6 +78,7 @@ public class MyVisual extends Visual
         abv = new AudioBandsVisual(this);
         bub = new Bubbles(this);
         sqr = new Square(this);
+        star = new Stars(this);
     }
 
 
@@ -109,27 +111,35 @@ public class MyVisual extends Visual
 
         //put bub in if () and create array list - access them as bub[i] in for loop.
         bub.render(); // -- bubbles moving 
-        bub.floup(); // bubbless float up
-        bub.moveback(); // bubbles to not disappear off screen
-        bub.flodown(); // bubbles to float down
+        //bub.floup(); // bubbless float up
+        //bub.moveback(); // bubbles to not disappear off screen
+        //bub.flodown(); // bubbles to float down
         
         if(changesqr)
         {
             sqr.render(); // -- bubbles moving
-            sqr.floup(); // bubbless float up
-            sqr.moveback(); // bubbles to not disappear off screen
-            sqr.flodown();
+            //sqr.floup(); // bubbless float up
+            //sqr.moveback(); // bubbles to not disappear off screen
+            //sqr.flodown();
         }
 
         if(multsqr) // another square
         {
             sqr.render(); // -- bubbles moving
-            sqr.floup(); // bubbless float up
-            sqr.moveback(); // bubbles to not disappear off screen
-            sqr.flodown();
+            //sqr.floup(); // bubbless float up
+            //sqr.moveback(); // bubbles to not disappear off screen
+            //sqr.flodown();
         }
 
-       
+        // to draw stars
+        //star.render(700, 400);
+        star.starDraw2();
+        //star.floup();
+        //star.moveback();
+        //star.flodown();
+        
+
+
         //draw hearts
         hearts(); //heart at middle
     }
