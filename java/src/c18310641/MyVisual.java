@@ -67,9 +67,9 @@ public class MyVisual extends Visual {
 
         startMinim();
         // loadAudio("love4eva.mp3");
-        // loadAudio("hihigh.mp3");
-        // loadAudio("zayn.mp3");
-        loadAudio("losingyou.mp3");
+        loadAudio("hihigh.mp3");
+        //loadAudio("zayn.mp3");
+        //loadAudio("losingyou.mp3");
 
         // Call this instead to read audio from the microphone
         // startListening();
@@ -101,6 +101,8 @@ public class MyVisual extends Visual {
         calculateAverageAmplitude();
         wf.vert(); // the waves moving, rainbow and see through
         // abv.render(); -- bars movings
+
+        bub.render();
 
         if (scrbg) // change background colour to white to black and black to white
         {
